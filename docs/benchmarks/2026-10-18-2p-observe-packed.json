@@ -1,0 +1,28 @@
+{
+  "python": "3.11.9",
+  "platform": "Windows-10-10.0.26100-SP0",
+  "processor": "AMD Ryzen 7 9800X3D",
+  "players": 2,
+  "observation_format": "packed",
+  "steps_per_repeat": 200000,
+  "repeats": 3,
+  "seconds": [
+    6.0839471,
+    6.2023003,
+    5.93672
+  ],
+  "median_steps_per_second": 32873.39562830847,
+  "natural_wins_per_repeat": [
+    48,
+    48,
+    48
+  ],
+  "components": {
+    "legal_actions_us": 12.354066666666668,
+    "clone_us": 21.177083333333336,
+    "packed_observation_us": 32.85791666666666,
+    "observation_us": 45.56373333333333,
+    "apply_legal_action_us": 3.117033333333333
+  },
+  "notes": "Single process; candidate encoding+validation included; observation mode is explicit; no trace/invariant checks per step; reset every 1000 steps or win."
+}

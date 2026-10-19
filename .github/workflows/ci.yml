@@ -1,0 +1,33 @@
+name: Tests and build
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7.0.0
+        with:
+          python-version: '3.11'
+      - uses: actions/setup-node@v7.1.0
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install Python dependencies
+        run: python -m pip install -r backend/requirements.txt
+      - name: Install frontend dependencies
+        run: npm ci
+      - name: Test game engine and API
+        run: python -m pytest backend/tests -q
+      - name: Check frontend contract
+        run: npm test
+      - name: Build frontend
+        run: npm run build
